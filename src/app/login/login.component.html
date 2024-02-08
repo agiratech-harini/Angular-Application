@@ -1,0 +1,44 @@
+ <!-- <h1>Login works!!</h1>
+
+<form>
+    <div class="input li1">
+        <label>Username:</label>
+        <input name ="Username "[(ngModel)]="UsernameInput" type="text"  placeholder="Enter your name"><br>
+    </div><br>
+    <div class="input li2">
+        <label>Password:</label>
+        <input name ="Password "[(ngModel)]="PasswordInput" type="text"  placeholder="Enter your Password"><br>
+    </div><br>
+    <div class ="input li3">
+        <input type="button" (click)="Login()" value="Login">
+    </div>
+    
+</form> 
+
+ -->
+
+ <!-- login.component.html -->
+ <h1>Login Works!</h1>
+<form [formGroup]="loginForm" (ngSubmit)="Login()">
+    <div class="input li1">
+    <label>Username:</label>
+    <input type="text" id="username" formControlName="username" />
+    
+  <div *ngIf="loginForm.get('username')!.hasError('required') && (loginForm.get('username')!.dirty || loginForm.get('username')!.touched)"><br>
+    Username is required.
+  </div>
+  </div><br>
+  <div class="input li2">
+    <label >Password:</label>
+    <input type="password" id="password" formControlName="password" /><br>
+    <div *ngIf="loginForm.get('password')!.hasError('required') && (loginForm.get('password')!.dirty || loginForm.get('password')!.touched)"><br>
+        Password is required.
+    
+      </div>
+    
+  </div><br>
+  <div class="input li3">
+    <button type="submit" >Login</button><br>
+  </div><br>
+  </form>
+  

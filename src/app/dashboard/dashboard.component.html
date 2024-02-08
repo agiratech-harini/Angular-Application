@@ -1,0 +1,120 @@
+<h1><strong>Registration Form!!</strong></h1>
+<div class="card">
+    <mat-card>
+        <mat-card-content>
+
+            <form [formGroup]="DashboardForm" (ngSubmit)="formSubmit()">
+                <div class="input li1">
+                    <label>Name:</label>
+                    <mat-form-field class="input" appearance="outline">
+
+                        <input matInput formControlName="name" />
+                    </mat-form-field>
+
+                    <div class="hasError"
+                        *ngIf="DashboardForm.get('name')!.hasError('required') && (DashboardForm.get('name')!.dirty || DashboardForm.get('name')!.touched)">
+
+                        Name is required
+                    </div>
+                </div>
+
+                <div class="input li2">
+                    <label>DOB:</label>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class="input li3">
+                    <label>E-mail:</label>
+                    <mat-form-field class="input" appearance="outline">
+
+                        <input matInput formControlName="emailId" />
+                    </mat-form-field>
+
+                    <div class="hasError"
+                        *ngIf="DashboardForm.get('emailId')!.hasError('required') && (DashboardForm.get('emailId')!.dirty || DashboardForm.get('emailId')!.touched)">
+
+                        email is required
+                    </div>
+                </div>
+                <div class="input li4">
+                    <label>Phone number:</label>
+                    <mat-form-field class="input" appearance="outline">
+
+                        <input matInput formControlName="phoneNumber" />
+                    </mat-form-field>
+
+                    <div class="hasError"
+                        *ngIf="DashboardForm.get('phoneNumber')!.hasError('required') && (DashboardForm.get('phoneNumber')!.dirty || DashboardForm.get('phoneNumber')!.touched)">
+
+                        Phone number is required
+                </div>
+                </div>
+                <div class="input li5">
+                    <label>Gender:</label>
+                    <mat-radio-group aria-label="Select an Gender">
+                        <mat-radio-button value="1">Female</mat-radio-button>
+                        <mat-radio-button value="2">Male</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div class="input li6">
+                    <label>Location:</label>
+                    
+                    <mat-form-field appearance="outline">
+                        <mat-label>Select</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let cities of city" [value]="cities.value">
+                                {{ cities.viewValue }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <!-- <div class="hasError"
+                    *ngIf="DashboardForm.get('city')!.hasError('required') && (DashboardForm.get('city')!.dirty || DashboardForm.get('city')!.touched)">
+
+                     city is required
+            </div> -->
+                </div>
+                <div class="input li7">
+                    <label>password:</label>
+                    <mat-form-field class="input" appearance="outline">
+
+                        <input matInput formControlName="password" />
+                    </mat-form-field>
+
+                    <div class="hasError"
+                        *ngIf="DashboardForm.get('password')!.hasError('required') && (DashboardForm.get('password')!.dirty || DashboardForm.get('password')!.touched)">
+
+                        Password is required
+                    </div>
+                </div>
+                <div class="input li8">
+                    <label>Confirmation password:</label>
+                    <mat-form-field class="input" appearance="outline">
+
+                        <input matInput formControlName="password" />
+                    </mat-form-field>
+
+                    <div class="hasError"
+                        *ngIf="DashboardForm.get('password')!.hasError('required') && (DashboardForm.get('password')!.dirty || DashboardForm.get('password')!.touched)">
+
+                        Confirmation is required
+                    </div>
+                </div>
+            
+                
+
+                <div class="input li11">
+                    <!-- <input type="submit" value="submit"> -->
+                    <button mat-raised-button type="submit" color="primary">Submit</button>
+
+                </div>
+
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+</div>
