@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
     DashboardForm: FormGroup;
-    constructor(public route: Router) {
-   
+    constructor(public route: Router,private productService : ProductService) {
+           
       this.DashboardForm = new FormGroup({
         name: new FormControl('', Validators.required),
         emailId:new FormControl('', Validators.required) ,
@@ -19,10 +20,22 @@ export class DashboardComponent {
         city:new FormControl('', Validators.required) ,
       });
     }
+
+    ngOnInit(): void {
+      this.showProductService();
+    }
+
    
     formSubmit() {
       this.DashboardForm.markAllAsTouched()
     };
+    showProductService() {
+      this.productService.getProducts()
+        // resp is of type `HttpResponse<Config>`
+        .subscribe(resp => {
+        console.log(resp);
+        });
+    }
     gender=[
       {value:'option1',viewValue:'female'},
       {value:'option2',viewValue:'male'},
