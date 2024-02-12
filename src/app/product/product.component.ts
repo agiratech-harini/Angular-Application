@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../product.service';
+import { map } from 'rxjs';
 type mobile={
   image:string,
-  model:string,
-  price:number
+  brand:string,
+  price:number,
+  rating:number,
+  stock:number
 }
 @Component({
   selector: 'app-product',
@@ -20,9 +23,28 @@ export class ProductComponent {
 
   showProductService() {
     this.productService.getProducts()
-      // resp is of type `HttpResponse<Config>`
+    .pipe(
+      map((response: any) => {  
+        console.log("Before map: ", response);  
+
+        return response.products
+      }),
+      map((response: any) => {
+        console.log("Before map: ", response);  
+        return response.map((item: any) => {
+          return {
+            image: item.images[0],
+            brand: item.brand,
+            price: item.price,
+            rating:item.rating,
+            stock:item.stock
+          }
+        })
+      })
+    )
       .subscribe((resp: any) => {
-        this.mobiles = resp.products.splice(0,10);
+        console.log("After map: ", resp);
+        this.mobiles = resp.splice(0,10);
       console.log(this.mobiles);
       });
   }

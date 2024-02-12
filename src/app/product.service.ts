@@ -9,6 +9,5 @@ export class ProductService {
   constructor(private http: HttpClient ) { }
   getProducts() {
     return this.http.get('https://dummyjson.com/products');
-
   }
 }
