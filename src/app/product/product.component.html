@@ -1,6 +1,22 @@
-<div *ngFor="let mobile of mobiles">
-    <img [src]="mobile.image">
-    <h1>{{ mobile.mobile_name }}</h1>
-    <div style="color:blue;font-weight:bold">Brand:{{ mobile.brand }}</div>
-    <div style="color:red;font-weight:bold">Price:{{ mobile.price}}</div> 
-    </div>
+<div>
+    <!-- <img [src]="mobile.image"> -->
+    <!-- <h1>{{ mobile.mobile_name }}</h1> -->
+    <!-- <div style="color:blue;font-weight:bold">Brand:{{ mobile.brand }}</div>
+    <div style="color:red;font-weight:bold">Price:{{ mobile.price}}</div> -->
+    <mat-card class="card" *ngFor="let mobile of mobiles">
+        <mat-card-header>
+         
+            <mat-card-title>{{mobile.brand}}</mat-card-title>
+          
+        </mat-card-header>
+        <img mat-card-image [src]="mobile.image">
+        <mat-card-content>
+     <!-- <div style="color:blue;font-weight:bold">Brand:{{ mobile.brand }}</div> -->
+    <div style="color:red;font-weight:bold">Price:{{ mobile.price}}</div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>DELETE</button>
+            <button mat-button>UPDATE</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
