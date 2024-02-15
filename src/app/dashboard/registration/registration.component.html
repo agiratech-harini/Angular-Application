@@ -1,31 +1,11 @@
-<!-- <h1><strong>Registration Form!!</strong></h1>
-<div>
-    <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <mat-label>Number</mat-label>
-          <input type="text"
-                 placeholder="Pick one"
-                 aria-label="Number"
-                 matInput
-                 [formControl]="myControl"
-                 [matAutocomplete]="auto">
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-              <mat-option *ngFor="let option of filteredOptions | async; track option" [value]="option">{{option}}</mat-option>
-          </mat-autocomplete>
-        </mat-form-field>
-      </form>
-</div> -->
-<button mat-button (click)="gotograph()">Graph</button>
-            <button mat-button (click)="gotoregistration()">Register</button>
-<router-outlet></router-outlet>
-
-<!-- <div class="card">
+<h1><strong>Registration Form!!</strong></h1>
+<div class="card">
     
-      
+
     <mat-card>
         <mat-card-content>
 
-            <form [formGroup]="DashboardForm" (ngSubmit)="formSubmit()">
+            <form [formGroup]="RegistrationForm" (ngSubmit)="formSubmit()">
                 <div class="input li1">
                     <label>Name:</label>
                     <mat-form-field class="input" appearance="outline">
@@ -34,7 +14,7 @@
                     </mat-form-field>
 
                     <div class="hasError"
-                        *ngIf="DashboardForm.get('name')!.hasError('required') && (DashboardForm.get('name')!.dirty || DashboardForm.get('name')!.touched)">
+                        *ngIf="RegistrationForm.get('name')!.hasError('required') && (RegistrationForm.get('name')!.dirty || RegistrationForm.get('name')!.touched)">
 
                         Name is required
                     </div>
@@ -58,7 +38,7 @@
                     </mat-form-field>
 
                     <div class="hasError"
-                        *ngIf="DashboardForm.get('emailId')!.hasError('required') && (DashboardForm.get('emailId')!.dirty || DashboardForm.get('emailId')!.touched)">
+                        *ngIf="RegistrationForm.get('emailId')!.hasError('required') && (RegistrationForm.get('emailId')!.dirty || RegistrationForm.get('emailId')!.touched)">
 
                         email is required
                     </div>
@@ -71,10 +51,10 @@
                     </mat-form-field>
 
                     <div class="hasError"
-                        *ngIf="DashboardForm.get('phoneNumber')!.hasError('required') && (DashboardForm.get('phoneNumber')!.dirty || DashboardForm.get('phoneNumber')!.touched)">
+                        *ngIf="RegistrationForm.get('phoneNumber')!.hasError('required') && (RegistrationForm.get('phoneNumber')!.dirty || RegistrationForm.get('phoneNumber')!.touched)">
 
                         Phone number is required
-                </div>
+                    </div>
                 </div>
                 <div class="input li5">
                     <label>Gender:</label>
@@ -85,15 +65,22 @@
                 </div>
                 <div class="input li6">
                     <label>Location:</label>
+                
                     
-                    <mat-form-field appearance="outline">
-                        <mat-label>Select</mat-label>
-                        <mat-select>
-                            <mat-option *ngFor="let cities of city" [value]="cities.value">
-                                {{ cities.viewValue }}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                
+                            <mat-form-field class="example-full-width" appearance="outline">
+                                <mat-label>Cities</mat-label>
+                                <input type="text" placeholder="Pick one" matInput [formControl]="myControl"
+                                    [matAutocomplete]="auto">
+                                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredOptions | async; track option"
+                                        [value]="option">{{option}}</mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                
+                    
+
+
                 </div>
                 <div class="input li7">
                     <label>password:</label>
@@ -103,7 +90,7 @@
                     </mat-form-field>
 
                     <div class="hasError"
-                        *ngIf="DashboardForm.get('password')!.hasError('required') && (DashboardForm.get('password')!.dirty || DashboardForm.get('password')!.touched)">
+                        *ngIf="RegistrationForm.get('password')!.hasError('required') && (RegistrationForm.get('password')!.dirty || RegistrationForm.get('password')!.touched)">
 
                         Password is required
                     </div>
@@ -116,22 +103,19 @@
                     </mat-form-field>
 
                     <div class="hasError"
-                        *ngIf="DashboardForm.get('password')!.hasError('required') && (DashboardForm.get('password')!.dirty || DashboardForm.get('password')!.touched)">
+                        *ngIf="RegistrationForm.get('password')!.hasError('required') && (RegistrationForm.get('password')!.dirty || RegistrationForm.get('password')!.touched)">
 
                         Confirmation is required
                     </div>
+
+                    <div class="input li11">
+                        <button mat-raised-button type="submit" color="primary">Submit</button>
+
+                    </div>
                 </div>
-            
-                
-
-                <div class="input li11">
-                    <button mat-raised-button type="submit" color="primary">Submit</button>
-
-                </div>
-
             </form>
         </mat-card-content>
     </mat-card>
-    
 
-</div> -->
+
+</div>

@@ -17,12 +17,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+
 
 @NgModule({
   declarations: [
     LoginComponent,
     AppComponent,
-    DashboardComponent,
     ProductComponent
   ],
   imports: [
@@ -40,7 +41,8 @@ import { ProductComponent } from './product/product.component';
     MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatAutocompleteModule,
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

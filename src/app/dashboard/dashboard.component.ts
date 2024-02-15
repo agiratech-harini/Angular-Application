@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from '../product.service';
+import { Observable, map, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +10,10 @@ import { ProductService } from '../product.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
+ myControl = new FormControl('');
+  options: string[] = ['One', 'Two', 'Three'];
+  filteredOptions!: Observable<string[]>;
+ 
     DashboardForm: FormGroup;
     constructor(public route: Router,private productService : ProductService) {
            
@@ -23,12 +28,27 @@ export class DashboardComponent {
 
     ngOnInit(): void {
       this.showProductService();
+      this.filteredOptions = this.myControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value || '')),
+      );
+    
+    }
+    private _filter(value: string): string[] {
+      const filterValue = value.toLowerCase();
+  
+      return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    }
+    gotograph(){
+      
+    this.route.navigate(['/dashboard/graph']);
+    }
+    gotoregistration(){
+      this.route.navigate(['/dashboard/registration']);
     }
 
    
-    formSubmit() {
-      this.DashboardForm.markAllAsTouched()
-    };
+   
     showProductService() {
       this.productService.getProducts()
         // resp is of type `HttpResponse<Config>`
@@ -36,16 +56,6 @@ export class DashboardComponent {
         console.log(resp);
         });
     }
-    gender=[
-      {value:'option1',viewValue:'female'},
-      {value:'option2',viewValue:'male'},
-    ];
-
-    city=[
-    {value:'option1',viewValue:'Dharmapuri'},
-    {value:'option1',viewValue:'Salem'},
-    {value:'option1',viewValue:'chennai'},
-    {value:'option1',viewValue:'Coimbatore'},
-    ];
+   
   }
 
