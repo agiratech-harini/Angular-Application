@@ -1,0 +1,4 @@
+<p>Parent component</p>
+<input #nameInputField placeholder="name" [value]="nameInput">
+<button (click)="updatetochild(nameInputField.value)">Update to child</button>
+<app-list (onNameChange)="changeName($event)" [name]="nameInput"></app-list>

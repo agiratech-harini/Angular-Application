@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from './product/product.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductComponent
+  },
+  {
+    path: 'products-io',
+    component: ProductsComponent
   }
 ]
 

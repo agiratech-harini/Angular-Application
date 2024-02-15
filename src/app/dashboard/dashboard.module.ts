@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { GraphComponent } from './graph/graph.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { DashboardComponent } from './dashboard.component';
-
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule} from '@angular/material/input';

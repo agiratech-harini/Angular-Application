@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule} from '@angular/material/input';
@@ -18,15 +17,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { ListComponent } from './list/list.component';
+import { ProductsComponent } from './products/products.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     AppComponent,
-    ProductComponent
+    ProductComponent,
+    ListComponent,
+    ProductsComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

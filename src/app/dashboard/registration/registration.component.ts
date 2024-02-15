@@ -18,7 +18,6 @@ export class RegistrationComponent {
     {value:'option2',viewValue:'male'},
   ];
 
-  
   constructor(public route: Router) {
            
     this.RegistrationForm = new FormGroup({
