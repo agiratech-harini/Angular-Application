@@ -15,4 +15,9 @@ export class ProductsComponent {
     console.log(inputValue)
     this.nameInput = inputValue;
   }
+  delete($event:any){
+    console.log("Deleted value :",$event);
+    this.nameInput=$event;
+  }
+  
 }

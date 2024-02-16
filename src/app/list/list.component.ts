@@ -9,7 +9,8 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 export class ListComponent implements OnChanges {
 @Input() name='default';
 @Output() onNameChange = new EventEmitter();
-// @Output() delete=new EventEmitter();
+@Output() delete=new EventEmitter();
+@Output() 
 
 childName: string = "n";
 
@@ -19,7 +20,7 @@ ngOnChanges(changes: SimpleChanges) {
   //}
 }
   deleteName(){
-    //this.delete.emit(true);
+    this.delete.emit("");
     
   }
 
